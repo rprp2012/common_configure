@@ -29,6 +29,8 @@ set nocompatible
 
 "显示行号
 set nu
+"长久显示状态栏
+set laststatus=2
 
 "设置缩进
 set tabstop=4
