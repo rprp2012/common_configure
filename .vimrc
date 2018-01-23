@@ -49,3 +49,29 @@ endif
 "对于python，将tap变成4个空格
 set expandtab
 set softtabstop=4
+
+"取消各种中间文件和备份
+set noundofile
+set nobackup
+set noswapfile
+
+" 关闭时保存折叠，启动时加载折叠
+au BufWinLeave * silent mkview
+au BufWinEnter * silent loadview
+
+"""""""""""""ctags和taglist设置
+"设置ctags路径
+let Tlist_Ctags_Cmd = "ctags.exe"
+"不同时显示多个文件的tag，仅显示一个
+let Tlist_Show_One_File = 1
+"taglist为最后一个窗口时，退出vim
+let Tlist_Exit_OnlyWindow = 1
+"taglist窗口显示在右侧，缺省为左侧
+"let Tlist_Use_Right_Window =1
+"设置taglist窗口大小
+"let Tlist_WinHeight = 100
+let Tlist_WinWidth = 40
+"设置taglist打开关闭的快捷键F8
+noremap <F8> :TlistToggle<CR>
+"更新ctags标签文件快捷键设置
+noremap <F7> :!ctags -R<CR>
