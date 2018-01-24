@@ -9,24 +9,24 @@ call vundle#begin()
 
 " 让vundle管理插件版本,必须
 Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'taglist.vim'
 " 以下范例用来支持不同格式的插件安装.
 " 请将安装插件的命令放在vundle#begin和vundle#end之间.
 " Github上的插件
 " 格式为 Plugin '用户名/插件仓库名'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 " 来自 http://vim-scripts.org/vim/scripts.html 的插件
 " Plugin '插件名称' 实际上是 Plugin 'vim-scripts/插件仓库名' 只是此处的用户名可以省略
-Plugin 'L9'
+"Plugin 'L9'
 " 由Git支持但不再github上的插件仓库 Plugin 'git clone 后面的地址'
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " 本地的Git仓库(例如自己的插件) Plugin 'file:///+本地插件仓库绝对路径'
-Plugin 'file:///home/gmarik/path/to/plugin'
+"Plugin 'file:///home/gmarik/path/to/plugin'
 " 插件在仓库的子目录中.
 " 正确指定路径用以设置runtimepath. 以下范例插件在sparkup/vim目录下
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " 安装L9，如果已经安装过这个插件，可利用以下格式避免命名冲突
-Plugin 'ascenator/L9', {'name': 'newL9'}
+"Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " 你的所有插件需要在下面这行之前
 call vundle#end()            " 必须
@@ -42,3 +42,25 @@ filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和
 "
 " 查阅 :h vundle 获取更多细节和wiki以及FAQ
 " 将你自己对非插件片段放在这行之后
+
+"""""""""""""Settings for tagslist,需要先安装ctags
+"让taglist窗口出现在Vim的左边边
+let Tlist_Use_Left_Window=1 
+"当同时显示多个文件中的tag时，设置为1，可使taglist只显示当前文件tag，其它文件的tag都被折叠起来。
+let Tlist_File_Fold_Auto_Close=1 
+"只显示一个文件中的tag，默认为显示多个
+let Tlist_Show_One_File=1 
+"Tag的排序规则，以名字排序。默认是以在文件中出现的顺序排序
+let Tlist_Sort_Type='name'
+"Taglist窗口打开时，立刻切换为有焦点状态
+let Tlist_GainFocus_On_ToggleOpen=1 
+"如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Exit_OnlyWindow=1 
+"设置窗体宽度为32，可以根据自己喜好设置
+let Tlist_WinWidth=32 
+"这里比较重要了，设置ctags的位置
+let Tlist_Ctags_Cmd ='/usr/bin/ctags'
+"热键设置，我设置成Leader+t来呼出和关闭Taglist
+noremap <F8> :TlistToggle<CR>
+"更新ctags标签文件快捷键设置
+noremap <F7> :!ctags -R<CR>
