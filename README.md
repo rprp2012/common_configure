@@ -1,4 +1,6 @@
-# common_configure
+# Custom Configuration for Tools
+
+Here are personal configurations for many tools by rprp2012.
 
 ## Vim Congiure
 .vimrc is for Vim.
