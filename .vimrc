@@ -56,7 +56,3 @@ set softtabstop=4
 set noundofile
 set nobackup
 set noswapfile
-
-" 关闭时保存折叠，启动时加载折叠
-au BufWinLeave * silent mkview
-au BufWinEnter * silent loadview
